@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+<title>GUIA DA BAIXA MOGI</title>
+
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+
+<script type="text/javascript" src="js/examples.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/funcoes.js"></script>
+<!-- puxar para atualizar -->	
+<script type="text/javascript" src="js/index.umd.min.js"></script>
+<script type="text/javascript" src="js/pulltorefresh.js?1537157676936"></script> 
+    
+<style> 
+
+@font-face {
+    font-family: 'googlebold';
+    src: url('fonts/GoogleSans-Bold.ttf');
+    font-style: normal;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Carregar uma pré-imagem antes de exibir a tela inicial -->	
+<div id="preloader" class="preloader-light">
+	<h1>
+		<img class="center-item top-15" src="images/guiamogi_logo.jpg" alt="Guia Gourmet" height="172" width="200">
+		<span class="center-text color-black ultrabold uppercase bottom-0">
+			<span class="color-red-dark">GUIA</span> DA BAIXA<span class="color-red-dark"> MOGI</span>
+		</span>
+	</h1>	
+	<div id="preload-spinner"></div>	
+	<em>Isso levará apenas alguns segundos. Vale totalmente a pena!</em>
+</div>
+
+	
+<div id="page-transitions" class="page-build highlight-red">
+	
+	<div class="header header-light header-logo-center" style="background-color:#900;">
+		<a href="index.html" class="header-logo"></a>
+		<a data-menu="menu-1" href="#" class="header-icon header-icon-1"><i class="fas fa-bars fa-lg" style="color:white;"></i></a>		
+	</div>
+			
+	<div id="menu-1" class="menu-sidebar menu-light menu-sidebar-left menu-sidebar-reveal">
+		<div class="menu-scroll">
+			
+			<div class="sidebar-logo">
+				<h3 style="color:#900;font-family:'googlebold',arial,sans-serif;">GUIA DA BAIXA MOGI</h3>
+			</div>
+
+			<div class="sidebar-divider"></div>
+
+			<div class="review-2" id="Foto">	
+			</div>
+             
+            <p class="uppercase ultrabold center-text top-30" id="Link" style="text-align:center;">              	
+            </p>
+
+			<div class="sidebar-divider"></div>			
+
+			<div class="menu-items menu-no-icons" id="Menu">				
+			</div>
+
+		</div>
+	</div>	
+
+
+	<div class="page-content header-clear">
+		<div class="content" id="logo">
+			
+            <img class="center-item top-15" src="images/guiamogi_logo.jpg" alt="Guia Gourmet" height="172" width="200">                   
+
+            <h3 class="uppercase bolder center-text">
+            	<span class="color-highlight">GUIA</span> Da Baixa <span class="color-highlight">Mogi</span>
+            </h3>
+
+        </div>
+
+        <div class="content">
+
+            <div class="container search-input-container search-input-round search-input-light bottom-15 top-10">
+				<div class="search-boxes">
+					<div class="search">
+						<i class="fa fa-search"></i>
+						<input type="text" class="search" id="searchid" placeholder="Pesquisar...">				
+                	</div>
+				</div>
+			</div>	
+
+		</div>	
+
+		<div class="content" id="result">
+			
+		</div>
+		      
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+	$(function(){
+		$(".search").keyup(function(){ 
+			var searchid = $(this).val();
+			var dataString = 'search='+ searchid;
+			if(searchid!=''){
+				$.ajax({
+					type: "POST",
+					url: "http://rafaths.com.br/guiamogiapp_crud/search.php",
+					data: dataString,
+					cache: false,
+					success: function(html){					
+						$("#logo").html(html).hide();						
+						$("#result").html(html).show();					
+					}
+				});
+			}return false;    
+		});
+		
+	}); 
+
+	/* global PullToRefresh */
+	PullToRefresh.init({
+		mainElement: 'body',onRefresh: function() {
+			window.location.reload(); 
+		},
+	    distThreshold : 50, // Minimum distance required to trigger the refresh.
+	    iconArrow: '<span class="fa fa-arrow-down"></span>', // The icon for both instructionsPullToRefresh and instructionsReleaseToRefresh
+	    instructionsPullToRefresh: "Pull down to DESTROY THE WORLD",
+	    instructionsReleaseToRefresh: "Release to ENABLE BOMB"
+	});
+
+	var usr_id = localStorage.getItem('usr_id');    
+	var Nome = localStorage.getItem('usr_nome');
+	var Foto = localStorage.getItem('usr_foto');
+	var usr_nivel = localStorage.getItem('usr_nivel');
+	var usr_status = localStorage.getItem('usr_status');	
+
+	console.log(usr_id);
+    console.log(Nome);
+    console.log(Foto);
+    console.log(usr_nivel);
+    console.log(usr_status);
+
+	if(usr_id > 0 & usr_nivel == 'Usuario' ){
+		var foto = "<img style='width:120px;height:120px;' src=http://rafaths.com.br/uploads/" + Foto + ">";
+
+		var link = "<a id='sair' onclick='sair()' class='color-red-dark'>Sair</a>";
+
+		var nome = "Nome: " + Nome + "<br><br>";
+
+		var menu = "<a id='index'>Página Inicial</a><a id='listarempresas'>Listar Empresas</a><a id='perfil'>Meu Perfil</a><a id='meusfavoritos'>Meus Favoritos</a><a id='minhasempresas'>Minhas Empresas</a><a id='meuscomentarios'>Meus Comentarios</a>";
+
+	}else if(usr_id > 0 & usr_nivel == 'Administrador' || usr_nivel == 'Proprietário' ){
+		var foto = "<img style='width:120px;height:120px;' src=http://rafaths.com.br/uploads/" + Foto + ">";
+
+		var link = "<a id='sair' onclick='sair()' class='color-red-dark'>Sair</a>";
+
+		var nome = "Nome: " + Nome + "<br><br>";
+
+		var menu = "<a id='index'>Página Inicial</a><a id='listarempresas'>Listar Empresas</a><a id='perfil'>Meu Perfil</a><a id='meusfavoritos'>Meus Favoritos</a><a id='minhasempresas'>Minhas Empresas</a><a id='meuscomentarios'>Meus Comentarios</a><a id='gerusuarios'>Gerenciar Usuários</a><a id='gerempresas'>Gerenciar Empresas</a><a id='gercomentarios'>Gerenciar Comentarios</a>";
+	}else{
+		var foto = "<img style='width:120px;height:120px;' src='images/user.png'>";
+		var link = "<a id='autenticar' class='color-red-dark'>Autenticar</a>";
+		var menu = "<a id='index'>Página Inicial</a><a id='listarempresas'>Listar Empresas</a>";
+	}
+
+	$("#Foto").html(foto);
+	$("#Link").html(link);
+	$("#Nome").html(nome);
+	$("#Menu").html(menu);
+
+	$("#autenticar").click(function(){ 
+		window.location.href="autenticar.html";
+		return false;  
+	});
+
+	$("#index").click(function(){ 
+		window.location.href="index.html";
+		return false;  
+	});
+
+	$("#listarempresas").click(function(){ 
+		window.location.href="listarempresas.html";
+		return false;  
+	});
+
+	$("#perfil").click(function(){ 
+		window.location.href="perfil.html";
+		return false;  
+	});
+		
+
+	$("#meusfavoritos").click(function(){ 
+		window.location.href="meusfavoritos.html";
+		return false;  
+	});
+
+	$("#minhasempresas").click(function(){ 
+		window.location.href="minhasempresas.html";
+		return false;  
+	});
+
+	$("#meuscomentarios").click(function(){ 
+		window.location.href="meuscomentarios.html";
+		return false;  
+	});
+
+	$("#gerusuarios").click(function(){ 
+		window.location.href="gerenciarusuarios.html";
+		return false;  
+	});
+
+	$("#gerempresas").click(function(){ 
+		window.location.href="gerenciarempresas.html";
+		return false;  
+	});
+
+	$("#gercomentarios").click(function(){ 
+		window.location.href="gerenciarcomentarios.html";
+		return false;  
+	});  
+
+}); 
+</script>
+</body>

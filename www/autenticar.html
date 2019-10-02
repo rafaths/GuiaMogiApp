@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+<title>GUIA DA BAIXA MOGI - Auth </title>
+
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/examples.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/funcoes.js"></script>
+<script type="text/javascript" src="js/index.umd.min.js"></script>
+<script src="js/pulltorefresh.js?1537157676936"></script> 
+    
+<style>   
+
+@font-face {
+    font-family: 'googlebold';
+    src: url('fonts/GoogleSans-Bold.ttf');
+    font-style: normal;
+}
+
+#fotoUsuario{
+    width:144px;
+    height:144px;
+    margin-left:auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: medium;
+    border-color: #900;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="page-transitions" class="page-build highlight-red">
+	
+	<div class="header header-light header-logo-center" style="background-color:#900;">
+		<a href="index.html" class="header-logo"></a>
+		<a data-menu="menu-1" href="#" class="header-icon header-icon-1"><i class="fas fa-bars fa-lg" style="color:white;"></i></a>		
+	</div>
+			
+	<div id="menu-1" class="menu-sidebar menu-light menu-sidebar-left menu-sidebar-reveal">
+		<div class="menu-scroll">			
+			<div class="sidebar-logo">
+				<h3 style="color:#900;font-family:'googlebold',arial,sans-serif;">GUIA DA BAIXA MOGI</h3>
+			</div>
+			<div class="sidebar-divider">				
+			</div>
+
+			<div class="review-2" id="Foto">			 	
+			</div>
+             
+            <p class="uppercase ultrabold center-text top-30" id="Link" style="text-align:center;">            	
+            </p>
+
+			<div class="sidebar-divider">				
+			</div>			
+
+			<div class="menu-items menu-no-icons" id="Menu">				
+			</div>
+		</div>
+	</div>	
+
+
+<div class="page-content header-clear-larger">
+
+	<div class="content">
+
+		<div class="accordion accordion-style-2 ">
+			<a href="#" class="color-white bg-green-dark  font-13" data-accordion="accordion-1">Já é cadastrado?<i class="fa fa-angle-down"></i></a>
+			<div class="accordion-content" id="accordion-1">
+
+				<h4 class="uppercase bolder">Autenticação</h4>
+
+	    		<div class="input-simple-2 has-icon input-green bottom-15">
+	    			<i class="fa fa-user"></i><input type="text" placeholder="Nome de usuário" id="nome_usuario_login">	    			
+	    		</div>	    			
+	    		<div class="input-simple-2 has-icon input-red bottom-15">
+	    			<i class="fa fa-lock"></i><input type="password" placeholder="Senha" id="senha_login">
+	    		</div> 
+	            <input type="button" id="autenticar" class="button-full button button-green uppercase ultrabold" value="Autenticar" />
+
+	            <ul class="link-list">               
+	                <li><a data-menu="menu-forgot" href="#"><i class="fa fa-question-circle font-14 color-red-dark"></i>Esqueceu a Senha?<i class="fa fa-angle-right"></i></a></li>                
+	            </ul>
+			</div>
+
+			<a href="#" class="color-white bg-blue-dark  font-13" data-accordion="accordion-2">Fazer Cadastro <i class="fa fa-angle-down"></i></a>
+			<div class="accordion-content" id="accordion-2">
+				<h4 class="uppercase bolder">Cadastro</h4>
+			
+				<div style="margin:0 auto;">
+		            <div id="fotoUsuario"></div>
+		        </div>
+
+		        </p>
+
+		        <a href="#" class="button button-round button-center-small button-xs button-dark2" onclick="fotoUsuario()" id="btnPerfil"><i class="fas fa-camera"></i> Escolher foto</a>
+
+		        </p>	
+				
+				<strong id="informeNome" class="font-14 color-red-dark"></strong>				
+				<div class="input-simple-2 has-icon input-blue bottom-15">
+					<i class="fa fa-user"></i>
+					<input type="text" placeholder="Informe seu nome" id="nome">						
+				</div>			
+
+				<strong id="informeUsuario" class="font-14 color-red-dark"></strong>				
+				<div class="input-simple-2 has-icon input-blue bottom-15">
+					<i class="fa fa-user"></i>
+					<input type="text" placeholder="nome de usuario" id="usuario">
+				</div>				
+				
+				<strong id="informeEmail" class="font-14 color-red-dark"></strong>
+				<div class="input-simple-2 has-icon input-blue bottom-15">
+					<i class="fa fa-envelope"></i>
+					<input type="text" placeholder="Informe seu email" id="email">
+				</div>				
+				
+				<strong id="informeCpf" class="font-14 color-red-dark"></strong>
+				<div class="input-simple-2 has-icon input-blue bottom-15">
+				 	<i class="fa fa-address-card"></i>
+				 	<input type="text" class="cpf" placeholder="Informe seu CPF" id="cpf">
+				</div>			
+				
+				<strong id="informeCep" class="font-14 color-red-dark"></strong>
+				<div class="input-simple-2 has-icon input-blue bottom-15">
+		            <i class="fa fa-home"></i>
+		            <input type="tel" class="cep_with_callback" placeholder="Informe o Cep" id="cep" name="cep">
+		        </div>
+
+		        <strong id="informeRua" class="font-14 color-red-dark"></strong>
+		        <div class="input-simple-2 has-icon input-blue bottom-15">
+		            <i class="fa fa-home"></i>
+		            <input type="text" placeholder="Informe o nome da rua" name="rua" id="rua">
+		        </div>
+
+		        <strong id="informeBairro" class="font-14 color-red-dark"></strong>
+		        <div class="input-simple-2 has-icon input-blue bottom-15">
+		            <i class="fa fa-home"></i>
+		            <input type="text" placeholder="Informe o nome do Bairro" name="bairro" id="bairro">
+		        </div>
+
+		        <strong id="informeCidade" class="font-14 color-red-dark"></strong>
+		        <div class="input-simple-2 has-icon input-blue bottom-15">
+		            <i class="fa fa-home"></i>
+		            <input type="text" placeholder="Informe o nome da cidade" id="cidade" name="cidade" >
+		        </div>
+
+		        <strong id="informeUf" class="font-14 color-red-dark"></strong>
+		        <div class="input-simple-2 has-icon input-blue bottom-15">
+		            <i class="fa fa-home"></i>
+		            <input type="text" placeholder="Informe a UF" name="uf" id="uf">
+		        </div> 
+		        
+		        <strong id="informeNumero" class="font-14 color-red-dark"></strong>
+		        <div class="input-simple-2 has-icon input-blue bottom-15">
+		            <i class="fa fa-home"></i>
+		            <input type="text" placeholder="Informe o número do endereço" name="nr_end" id="nr_end">
+		        </div>			
+				
+				<strong id="informeSenha" class="font-14 color-red-dark"></strong>
+				<div class="input-simple-2 has-icon input-red bottom-15">
+					<i class="fa fa-lock"></i>
+					<input type="password" placeholder="Cadastre uma senha" id="senha">
+				</div>			
+				
+				<strong id="confSenha" class="font-14 color-red-dark"></strong>
+				<div class="input-simple-2 has-icon input-red bottom-15">
+				 	<i class="fa fa-lock"></i>
+				 	<input type="password" placeholder="Digite novamente a senha" id="conf_senha">
+				</div>				
+			
+				<input type="button" id="cadastrar" class="button-full button button-blue uppercase ultrabold" value="Cadastrar" />								
+			</div>				
+		</div>
+	</div>
+</div>			
+	
+	<div id="menu-forgot" class="menu-flyin">
+        <div class="menu-flyin-content top-20 bottom-10">
+            <div class="page-login bottom-0">
+                <h3 class="uppercase ultrabold bottom-0">Esqueceu a Senha?</h3>
+                <p class="smaller-text bottom-20">para recuperarmos a sua conta, nós precisamos de algumas informações.</p>
+                <div class="page-login-field">
+                    <i class="fa fa-at"></i>
+                    <input type="text" placeholder="Email" id="email">
+                    <em>(Obrigatório)</em>
+                </div>          
+                <div class="page-login-links bottom-30">
+                    <div class="clear"></div>
+                </div>
+                <a href="#" class="button button-magenta button-full button-rounded button-s uppercase bolder">Enviar Email de Recuperação</a>
+            </div>  
+        </div>
+    </div>
+
+<script>
+
+$(document).ready(function(){
+
+	/* global PullToRefresh */
+	PullToRefresh.init({
+		mainElement: 'body',onRefresh: function() {
+			window.location.reload(); 
+		},
+		    distThreshold : 50, // Minimum distance required to trigger the refresh.
+		    iconArrow: '<span class="fa fa-arrow-down"></span>', // The icon for both instructionsPullToRefresh and instructionsReleaseToRefresh
+		    instructionsPullToRefresh: "Pull down to DESTROY THE WORLD",
+		    instructionsReleaseToRefresh: "Release to ENABLE BOMB"
+	});
+	
+	var foto = "<img style='width:120px;height:120px;' src='images/user.png'>";
+	var link = "<a id='auth' class='color-red-dark'>Autenticar</a>";
+	var menu = "<a id='index'>Página Inicial</a><a id='listarempresas'>Listar Empresas</a>";					    
+
+	$("#Foto").html(foto);
+	$("#Link").html(link);	
+	$("#Menu").html(menu);
+
+	$("#cadastrar").click(function(){ 
+	    cadastrarUsuario();  
+	});
+
+	$("#autenticar").click(function(){ 
+	    verificaUsuario();  
+	}); 	
+
+	$("#index").click(function(){ 
+		window.location.href="index.html";
+		return false;  
+	});
+
+	$("#listarempresas").click(function(){ 
+		window.location.href="listarempresas.html";
+		return false;  
+	});	  
+
+});
+</script>
+
+</body>

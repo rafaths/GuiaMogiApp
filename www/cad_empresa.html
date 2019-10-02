@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<title>GUIA DA BAIXA MOGI - Empresa </title>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/framework.css">
+<link rel="stylesheet" type="text/css" href="css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/examples.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/funcoes.js"></script>
+<script type="text/javascript" src="js/index.umd.min.js"></script>
+<script src="js/pulltorefresh.js?1537157676936"></script> 
+    
+<style>          
+
+@font-face {
+    font-family: 'googlebold';
+    src: url('fonts/GoogleSans-Bold.ttf');
+    font-style: normal;
+}
+
+#fotoEmpresa{
+    width:150px;
+    height:150px;
+    margin-left:auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: medium;
+    border-color: #900;
+}
+
+</style>
+
+</head>
+
+<body>
+	
+<div id="page-transitions" class="page-build highlight-red">
+	
+	<div class="header header-light header-logo-center" style="background-color:#900;">
+		<a href="index.html" class="header-logo"></a>
+		<a data-menu="menu-1" href="#" class="header-icon header-icon-1"><i class="fas fa-bars fa-lg" style="color:white;"></i></a>
+		<div class="input-simple-2 has-icon input-blue bottom-15" id="inputid">            
+        </div>		
+	</div>
+			
+	<div id="menu-1" class="menu-sidebar menu-light menu-sidebar-left menu-sidebar-reveal">
+		<div class="menu-scroll">
+			
+			<div class="sidebar-logo">
+				<h3 style="color:#900;font-family:'googlebold',arial,sans-serif;">GUIA DA BAIXA MOGI</h3>
+			</div>
+			<div class="sidebar-divider"></div>
+
+			<div class="review-2" id="Foto">
+			 	
+			</div>
+             
+            <p class="uppercase ultrabold center-text top-30" id="Link" style="text-align:center;">
+              	
+            </p>
+
+			<div class="sidebar-divider"></div>			
+
+			<div class="menu-items menu-no-icons" id="Menu">
+
+				
+				
+			</div>
+		</div>
+	</div>	
+
+
+<div class="page-content header-clear-larger">
+
+	<div class="content">    
+
+        <h4 class="uppercase bolder">Cadastro de Empresa</h4>
+        
+        <div style="margin:0 auto;">
+            <div id="fotoEmpresa">
+            	<img src="images/seulogo.jpg" width="148" height="148">  
+            </div>
+        </div>
+
+        </p>
+
+        <a href="#" class="button button-round button-center-small button-xs button-dark2" onclick="fotoEmpresa()" id="btnPerfil"><i class="fas fa-camera"></i> Escolher foto</a>
+
+        </p> 
+        
+        <div class="input-simple-2 has-icon input-blue bottom-15" id="inputid">            
+        </div>
+
+        <strong id="informeEmpresa" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="Infome o nome da empresa" id="nome_empresa">
+        </div>
+
+        <strong id="informeDescricao" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 textarea has-icon input-blue bottom-15">
+        	<i class="fa fa-edit"></i>
+        	<textarea class="textarea-simple-2" placeholder="Informe uma descrição da empresa" id="descricao"></textarea>
+        </div>
+
+        <div class="input-simple-2 has-icon input-blue bottom-15" id="catid"> 
+            <input type='hidden' id='usr_id' name='usr_id' value='" + cat_id + "'>
+        </div>  
+        <strong id="selecioneCategoria" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fas fa-list-alt"></i>
+            <input type="text" placeholder="Informe a categoria da empresa" id="categoria">
+            <div id="display"></div>
+        </div>
+
+        <strong id="informeEmail" class="font-14 color-red-dark"></strong>        
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-envelope"></i>
+            <input type="text" placeholder="Informe o email da empresa" id="email">
+        </div>
+
+        <strong id="informetelefone" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-phone"></i><input type="text" class="phone_with_ddd" placeholder="Informe um telefone fixo" id="telefone">
+        </div>
+
+        <strong id="informeCelular" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-mobile-alt"></i>
+            <input type="text" class="sp_celphones" placeholder="Informe um telefone celular" id="celular">
+        </div>
+
+        <strong id="informeCep" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-home"></i>
+            <input type="tel" class="cep_with_callback" placeholder="Informe o Cep" id="cep" name="cep">
+        </div>
+
+        <strong id="informeRua" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-home"></i>
+            <input type="text" placeholder="Informe o nome da rua" name="rua" id="rua">
+        </div>
+
+        <strong id="informeBairro" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-home"></i>
+            <input type="text" placeholder="Informe o nome do Bairro" name="bairro" id="bairro">
+        </div>
+
+        <strong id="informeCidade" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-home"></i>
+            <input type="text" placeholder="Informe o nome da cidade" id="cidade" name="cidade" >
+        </div>
+
+        <strong id="informeUf" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-home"></i>
+            <input type="text" placeholder="Informe a UF" name="uf" id="uf">
+        </div> 
+
+        <strong id="informeNumero" class="font-14 color-red-dark"></strong>        
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fa fa-home"></i>
+            <input type="text" placeholder="Informe o número do endereço" name="nr_end" id="nr_end">
+        </div>
+
+        <strong id="informeFacebook" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fab fa-facebook-f"></i>
+            <input type="text" placeholder="Facebook" id="facebook">
+        </div>
+
+        <strong id="informeWhatsapp" class="font-14 color-red-dark"></strong>	
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fab fa-whatsapp"></i>
+            <input type="text" class="sp_celphones" placeholder="whatsapp" id="whatsapp">
+        </div>
+
+        <strong id="informeInstagram" class="font-14 color-red-dark"></strong>
+        <div class="input-simple-2 has-icon input-blue bottom-15">
+            <i class="fab fa-instagram"></i>
+            <input type="text" placeholder="instagram" id="instagram">
+        </div>
+
+        
+
+        <a href="#" class="button-full button button-blue uppercase ultrabold" id="cadastrar">Cadastrar</a>       
+        
+        <div class="clear"></div>        
+
+        <div class="decoration decoration-margins"></div>
+
+    </div>
+</div>
+
+<script>	
+
+$(document).ready(function(){	
+
+	/* global PullToRefresh */
+    PullToRefresh.init({
+        mainElement: 'body',onRefresh: function() {
+            window.location.reload(); 
+        },
+        distThreshold : 50, // Minimum distance required to trigger the refresh.
+        iconArrow: '<span class="fa fa-arrow-down"></span>', // The icon for both instructionsPullToRefresh and instructionsReleaseToRefresh
+        instructionsPullToRefresh: "Pull down to DESTROY THE WORLD",
+        instructionsReleaseToRefresh: "Release to ENABLE BOMB"
+    });
+
+    var usr_id = localStorage.getItem('usr_id');    
+    var Nome = localStorage.getItem('usr_nome');
+    var Foto = localStorage.getItem('usr_foto');
+    var usr_nivel = localStorage.getItem('usr_nivel');
+    var usr_status = localStorage.getItem('usr_status');
+
+    //console.log(usr_id);
+    //console.log(usr_nivel);
+    //console.log(usr_status);
+
+    if(usr_id > 0 & usr_nivel == 'Usuario' ){
+        var foto = "<img style='width:120px;height:120px;' src=http://rafaths.com.br/uploads/" + Foto + ">";
+        var link = "<a id='sair' onclick='sair()' class='color-red-dark'>Sair</a>";
+        var nome = "Nome: " + Nome + "<br><br>";
+        var menu = "<a id='index'>Página Inicial</a><a id='lisempresas'>Listar Empresas</a><a id='perfil'>Meu Perfil</a><a id='favoritos'>Meus Favoritos</a><a id='minhasempresas'>Minhas Empresas</a><a id='gercomentarios'>Gerenciar Comentarios</a>";
+    }else if(usr_id > 0 & usr_nivel == 'Administrador' || usr_nivel == 'Proprietário' ){
+        var foto = "<img style='width:120px;height:120px;' src=http://rafaths.com.br/uploads/" + Foto + ">";
+        var link = "<a id='sair' onclick='sair()' class='color-red-dark'>Sair</a>";
+        var nome = "Nome: " + Nome + "<br><br>";
+        var menu = "<a id='index'>Página Inicial</a><a id='lisempresas'>Listar Empresas</a><a id='perfil'>Meu Perfil</a><a id='favoritos'>Meus Favoritos</a><a id='minhasempresas'>Minhas Empresas</a><a id='gerusuarios'>Gerenciar Usuários</a><a id='gerempresas'>Gerenciar Empresas</a><a id='gercomentarios'>Gerenciar Comentarios</a>";
+    }else{
+        var foto = "<img style='width:120px;height:120px;' src='images/user.png'>";
+        var link = "<a id='autenticar' class='color-red-dark'>Autenticar</a>";
+        var menu = "<a id='index'>Página Inicial</a>";
+    } 				    
+
+	$("#Foto").html(foto);
+	$("#Link").html(link);
+	$("#Nome").html(nome);
+	$("#Menu").html(menu);
+	$("#inputid").html(inputid);
+
+	$("#cadastrar").click(function(){ 
+	    cadastrarEmpresa();  
+	});	   
+
+
+	$("#autenticar").click(function(){ 
+        window.location.href="autenticar.html";
+        return false;  
+    });
+
+    $("#index").click(function(){ 
+        window.location.href="index.html";
+        return false;  
+    });
+
+    $("#perfil").click(function(){ 
+        window.location.href="perfil.html";
+        return false;  
+    });
+
+    $("#lisempresas").click(function(){ 
+        window.location.href="listarempresas.html";
+        return false; 
+    }); 
+
+    $("#favoritos").click(function(){ 
+        window.location.href="meusfavoritos.html";
+        return false;  
+    });
+
+    $("#minhasempresas").click(function(){ 
+        window.location.href="minhasempresas.html";
+        return false;  
+    });
+
+    $("#gerusuarios").click(function(){ 
+        window.location.href="gerenciarusuarios.html";
+        return false;  
+    });
+
+    $("#gerempresas").click(function(){ 
+        window.location.href="gerenciarempresas.html";
+        return false;  
+    });
+
+    $("#gercomentarios").click(function(){ 
+        window.location.href="comentarios.html";
+        return false;  
+    }); 
+	
+});
+</script>
+
+</body>
